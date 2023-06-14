@@ -119,7 +119,7 @@ app.use('/tienda', controllerTienda.getRouter());
 app.use('/usuario', controllerUsuario.getRouter());
 app.use('/logger',controllerLogger.getRouter());
 app.use('/snapshot', controllerSnapshot.getRouter());
-app.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.get(':3001/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
   res.sendFile(__dirname + '/assets/index.html')
 })
 // app.use(express.static('public'))
