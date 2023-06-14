@@ -28,14 +28,14 @@ let server: any //TODO: Corregir any.
 //Implementar variable susceptible a cambio por comando
 let tiempo: number = 10000;
 
- const http = require('http')
- const serverSocket = http.createServer(app)
+const http = require('http')
+const serverSocket = http.createServer(app)
 
 const puertoSocket: number = 3001;
 const { Server } = require('socket.io')
 const io = new Server(serverSocket, { pingInterval: 2000, pingTimeout: 5000 })
 
-const RpsGame = require('./rps-game');
+const RpsGame = require('./rps-game.js');
 
 async function onInit() {
   await Configurator.cargarConfiguracion();
