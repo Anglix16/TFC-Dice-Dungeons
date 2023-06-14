@@ -128,6 +128,12 @@ app.get('/juego', (req: express.Request, res: express.Response, next: express.Ne
   res.sendFile(__dirname + '/assets/juengoonline.html')
 })
 
+// add this
+app.get('/socket.io/socket.io.js', (req, res) => {
+  res.sendFile(__dirname + '/node_modules/socket.io/client-dist/socket.io.js');
+});
+///
+
 serverSocket.listen(puertoSocket, () => {
   console.log(`Example app listening on port ${puertoSocket}`)
 })
