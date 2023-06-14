@@ -116,7 +116,7 @@ $(document).ready(function () {
         var nombre = $("#name").val();
         var contrasena = $("#password").val();
     
-        $.post('http://localhost:3000/usuario',{
+        $.post('https://tfc-dice-dungeons-production.up.railway.app:3000/usuario',{
             "identificador": email,
             "nombre": nombre,
             "password": contrasena,
@@ -134,7 +134,7 @@ $(document).ready(function () {
 
     $("#inicio").on("click",()=>{
         var email = $("#loginemail").val();
-        var ruta = `http://localhost:3000/usuario/${email}`;
+        var ruta = `https://tfc-dice-dungeons-production.up.railway.app/usuario/${email}`;
         console.log(ruta);
         console.log(email);
         console.log(typeof(email));

@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
        
       this.document.getElementById("catan").addEventListener("click",()=>{
         console.log("MUY BUENAS TARDES DOÑA LARA")
-        var ruta = `http://localhost:3000/tienda/1686754639914`;
+        var ruta = `https://tfc-dice-dungeons-production.up.railway.app/tienda/1686754639914`;
 
         $.getJSON(ruta,
           (data, status) => {
