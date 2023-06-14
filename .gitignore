@@ -1,4 +1,10 @@
-dist
+dist/commons
+dist/definicionJuego
+dist/docs
+dist/app.js
+dist/app.js.map
+dist/rps-game.js
+dist/rps-game.js.map
 package-lock.json
 node_modules
 coverage

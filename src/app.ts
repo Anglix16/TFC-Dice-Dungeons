@@ -35,7 +35,7 @@ const puertoSocket: number = 3001;
 const { Server } = require('socket.io')
 const io = new Server(serverSocket, { pingInterval: 2000, pingTimeout: 5000 })
 
-const RpsGame = require('./rps-game.js');
+const RpsGame = require('./rps-game');
 
 async function onInit() {
   await Configurator.cargarConfiguracion();
