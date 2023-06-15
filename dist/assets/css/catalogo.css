@@ -229,3 +229,26 @@ a:hover {
     background-color: #444444;
     transform: translateY(-50%);
 }
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb span {
+    color: #999;
+  }
+
+  .breadcrumb{
+    margin-left: 300px;
+  }
+
+  @media sreen and (max-width: 600px){
+    .breadcrumb{
+        margin-left: 200px;
+    }
+  }
