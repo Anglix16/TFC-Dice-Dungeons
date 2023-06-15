@@ -24,10 +24,14 @@ window.addEventListener('load', function(){
         carrito = [];
         this.localStorage.setItem("carrito", JSON.stringify(carrito));
       }
-       
-      this.document.getElementById("catan").addEventListener("click",()=>{
-        console.log("MUY BUENAS TARDES DOÑA LARA")
-        var ruta = `https://tfc-dice-dungeons-production.up.railway.app/tienda/1686754639914`;
+      
+      
+
+      this.document.addEventListener("click", (event) => {
+        
+        if (event.target.className == "carro"){
+        // var ruta = `http://localhost:3000/tienda/${event.target.id}`;
+        var ruta = `https://tfc-dice-dungeons-production.up.railway.app/tienda/${event.target.id}`;
 
         $.getJSON(ruta,
           (data, status) => {
@@ -39,8 +43,24 @@ window.addEventListener('load', function(){
               this.localStorage.setItem("carrito", JSON.stringify(carrito));
             }
         })
-    });
+    }})
+;
+    this.document.getElementById("catan").addEventListener("click",()=>{
+      var numero = this.document.getElementsByClassName("badge")[0];
 
+    if(this.localStorage.getItem("carrito")){
+      var carrito = [];
+      carrito = JSON.parse(this.localStorage.getItem("carrito"));
+    }
+
+    if(carrito.length != 0){
+      numero.innerHTML = carrito.length;
+    }
+    })
+    
 
    
     })
+
+
+    

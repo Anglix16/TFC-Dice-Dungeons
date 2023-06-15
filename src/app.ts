@@ -23,15 +23,16 @@ import { DependencyContainer } from './commons/dependecy-container/DependencyCon
 import { Configurator } from './commons/configurator/Configurator';
 import { Configuration } from './commons/configurator/configuration/Configuration';
 
+
 const app = express();
-let server: any //TODO: Corregir any.
+let server: any = require('http').createServer(app)//TODO: Corregir any.
 //Implementar variable susceptible a cambio por comando
 let tiempo: number = 10000;
+
 
 const http = require('http')
 const serverSocket = http.createServer(app)
 
-const puertoSocket: number = 3001;
 const { Server } = require('socket.io')
 const io = new Server(serverSocket, { pingInterval: 2000, pingTimeout: 5000 })
 
@@ -71,6 +72,8 @@ function serve() {
   //Snapshot
   const repoSnapshot = new RepositorySnapshotImplFicheros();
   const servicioSnapshot = ServicioSnapshot.initialize(repoSnapshot);
+
+
 
 //IntepretaciónApi
 // const servicioInterpretacionApi = ServicioInterpretacionApi.initialize(repoOperaApiCommand)
@@ -126,15 +129,9 @@ app.get('/juego', (req: express.Request, res: express.Response, next: express.Ne
   res.sendFile(__dirname + '/assets/juengoonline.html')
 })
 
-// add this
-app.get('/socket.io/socket.io.js', (req, res) => {
-  res.sendFile(__dirname + '/node_modules/socket.io/client-dist/socket.io.js');
-});
-///
-
-serverSocket.listen(puertoSocket, () => {
-  console.log(`Example app listening on port ${puertoSocket}`)
-})
+// serverSocket.listen(puertoSocket, () => {
+//   console.log(`Example app listening on port ${puertoSocket}`)
+// })
 
 const backEndPlayers:any = {}
 
@@ -226,7 +223,7 @@ let waitingPlayer:any = null;
     socket.on('eliminateDiv', (divId) =>{
       io.emit('eliminateDiv', divId);
     })
-  
+    server.listen(3000);
   })
   
   setInterval(() => {
