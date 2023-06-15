@@ -29,7 +29,7 @@ window.addEventListener('load', function(){
 
       this.document.addEventListener("click", (event) => {
         
-        if (event.target.className == "carro"){
+        if (event.target.className == "carro btn"){
         // var ruta = `http://localhost:3000/tienda/${event.target.id}`;
         var ruta = `https://tfc-dice-dungeons-production.up.railway.app/tienda/${event.target.id}`;
 
@@ -45,18 +45,7 @@ window.addEventListener('load', function(){
         })
     }})
 ;
-    this.document.getElementById("catan").addEventListener("click",()=>{
-      var numero = this.document.getElementsByClassName("badge")[0];
 
-    if(this.localStorage.getItem("carrito")){
-      var carrito = [];
-      carrito = JSON.parse(this.localStorage.getItem("carrito"));
-    }
-
-    if(carrito.length != 0){
-      numero.innerHTML = carrito.length;
-    }
-    })
     
 
    
