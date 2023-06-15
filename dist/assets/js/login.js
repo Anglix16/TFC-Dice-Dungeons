@@ -125,8 +125,17 @@ $(document).ready(function () {
             
           },
           (data, status) => {
-            console.log(data);
-            console.log(status);
+            if(status == "success"){       
+                var sesion = [];
+                if (sessionStorage.getItem("sesion")){
+
+                 sesion = JSON.parse(sessionStorage.getItem("sesion"));
+                    if (sesion.length != 0){
+                        $("#btnInicio").removeClass('btn-book-a-table').addClass('hola');
+                    }
+                }
+                sessionStorage.setItem("sesion",JSON.stringify(email));
+            }
         }
         
           )
